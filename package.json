@@ -1,0 +1,17 @@
+{
+   "name": "stellaris-mod-maker",
+   "version": "1.0.0",
+   "main": "index.js",
+   "scripts": {},
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/axelNTI/stellaris-mod-maker.git"
+   },
+   "author": "Axel Thornberg",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/axelNTI/stellaris-mod-maker/issues"
+   },
+   "homepage": "https://github.com/axelNTI/stellaris-mod-maker#readme",
+   "description": ""
+}

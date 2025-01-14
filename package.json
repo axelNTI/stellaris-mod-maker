@@ -1,8 +1,10 @@
 {
    "name": "stellaris-mod-maker",
    "version": "1.0.0",
-   "main": "index.js",
-   "scripts": {},
+   "main": "main.js",
+   "scripts": {
+      "start": "electron ."
+   },
    "repository": {
       "type": "git",
       "url": "git+https://github.com/axelNTI/stellaris-mod-maker.git"
@@ -13,5 +15,10 @@
       "url": "https://github.com/axelNTI/stellaris-mod-maker/issues"
    },
    "homepage": "https://github.com/axelNTI/stellaris-mod-maker#readme",
-   "description": ""
+   "description": "",
+   "dependencies": {
+      "electron": "^33.2.1",
+      "handlebars": "^4.7.8",
+      "js-yaml": "^4.1.0"
+   }
 }

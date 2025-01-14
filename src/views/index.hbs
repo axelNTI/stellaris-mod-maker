@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title></title>
+
+      <script defer src="src/js/jquery-3.7.1.min.js"></script>
+      <script defer src="src/js/main.js"></script>
+   </head>
+   <body>
+      {{#each mods}}
+
+      <h1>{{this.name}}</h1>
+
+      <button>{{@root.locale.load_mod}}</button>
+
+      {{/each}}
+
+      <button>{{locale.new_mod}}</button>
+
+      <div style="display: none" data-locale="{{locale}}" data-data="{{data}}"></div>
+   </body>
+</html>

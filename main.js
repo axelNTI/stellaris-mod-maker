@@ -24,17 +24,26 @@ const getLocale = (language) => {
 // Mod functions
 
 const getModDescriptorNames = () => {
+   if (!fs.existsSync(modDir)) {
+      return [];
+   }
    const mods = fs.readdirSync(modDir);
    return mods.filter((mod) => mod.endsWith(".mod") && !mod.match(/ugc_\d+\.mod/));
 };
 
 const getModFolder = (modDescriptorName) => {
+   if (!fs.existsSync(modDir)) {
+      return "";
+   }
    const mod = fs.readFileSync(path.join(modDir, modDescriptorName), "utf-8");
    const modPath = mod.match(/path="(.*)"/)[1];
    return path.join(app.getPath("documents"), "Paradox Interactive", "Stellaris", modPath);
 };
 
 const getModName = (modDescriptorName) => {
+   if (!fs.existsSync(modDir)) {
+      return "";
+   }
    const mod = fs.readFileSync(path.join(modDir, modDescriptorName), "utf-8");
    return mod.match(/name="(.*)"/)[1];
 };

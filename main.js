@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 const fs = require("fs");
 const Handlebars = require("handlebars");
-const yaml = require("js-yaml");
+const yaml = require("yaml");
 const path = require("path");
 
 const modDir = path.join(app.getPath("documents"), "Paradox Interactive", "Stellaris", "mod");
@@ -18,7 +18,7 @@ const compileHandlebars = (file, data) => {
 const getLocale = (language) => {
    const localePath = path.join(__dirname, "src", "locale", `${language}.yml`);
    const locale = fs.readFileSync(localePath, "utf-8");
-   return yaml.load(locale);
+   return yaml.parse(locale);
 };
 
 // Mod functions

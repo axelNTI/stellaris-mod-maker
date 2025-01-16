@@ -18,7 +18,7 @@ const getModFolder = (modDescriptorName) => {
    }
    const mod = fs.readFileSync(path.join(modDir, modDescriptorName), "utf-8");
    const modPath = mod.match(/path="(.*)"/)[1];
-   return path.join(app.getPath("documents"), "Paradox Interactive", "Stellaris", modPath);
+   return path.join(app.getPath("documents"), "Paradox Interactive", "Stellaris", "mod", modPath);
 };
 
 const getModName = (modDescriptorName) => {

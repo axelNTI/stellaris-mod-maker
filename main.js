@@ -34,7 +34,6 @@ const main = () => {
       frame: false,
       fullscreen: true,
       webPreferences: {
-         nodeIntegration: true,
          preload: path.join(__dirname, "preload.js"),
       },
    });

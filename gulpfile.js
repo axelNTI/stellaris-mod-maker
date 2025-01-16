@@ -53,4 +53,8 @@ gulp.task("handlebars", () => {
    return Promise.all(tasks);
 });
 
-gulp.task("build", gulp.parallel("handlebars"));
+gulp.task("js", () => {
+   return gulp.src("src/js/*.js").pipe(gulp.dest("dist/js"));
+});
+
+gulp.task("build", gulp.parallel("handlebars", "js"));

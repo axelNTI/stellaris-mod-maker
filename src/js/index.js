@@ -1,13 +1,15 @@
 $(async () => {
-   const mods = await backend.getModDescriptorNames();
 
-   const locale = await backend.getLocale("en");
-   console.log(locale);
+   const mods = await backend.getModDescriptorNames();
+   const languageCode = $("#data").data("language");
+   const locale = await backend.getLocale(languageCode);
 
    mods.forEach(async (mod) => {
       const name = await backend.getModName(mod);
-      const folder = await backend.getModFolder(mod);
-      $("body").append(`<p>${name}</p>`);
-      $("body").append("<button>Open</button>");
+
+      const section = $("<section></section>");
+      section.append(`<p>${name}</p>`);
+      section.append(`<button>${locale.load_mod}</button>`);
+      $("#mods").append(section);
    });
 });

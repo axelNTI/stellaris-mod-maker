@@ -26,6 +26,23 @@ const getLocale = (languageCode) => {
    return JSON.parse(locale);
 };
 
+const getModFolderNameFromModName = (modName) => {
+   return modName
+      .replace(/[^a-zA-Z\s]/g, "")
+      .trim()
+      .replace(/\s+/g, "_")
+      .toLowerCase();
+};
+
+const getModShorthandName = (modName) => {
+   return modName
+      .replace(/[^a-zA-Z\s]/g, "")
+      .trim()
+      .split(/\s+/)
+      .map((word) => word[0].toLowerCase())
+      .join("");
+};
+
 const main = () => {
    if (!fs.existsSync(modDir)) {
       fs.mkdirSync(modDir, {
@@ -47,6 +64,8 @@ const main = () => {
    ipcMain.handle("getModFolder", (_, modDescriptorName) => getModFolder(modDescriptorName));
    ipcMain.handle("getModName", (_, modDescriptorName) => getModName(modDescriptorName));
    ipcMain.handle("getLocale", (_, languageCode) => getLocale(languageCode));
+   ipcMain.handle("getModFolderNameFromModName", (_, modName) => getModFolderNameFromModName(modName));
+   ipcMain.handle("getModShorthandName", (_, modName) => getModShorthandName(modName));
 };
 
 app.whenReady().then(main);

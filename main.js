@@ -30,7 +30,6 @@ const getModName = (modDescriptorName) => {
 };
 
 const getLocale = (languageCode) => {
-   console.log("Test");
    const localePath = path.join(__dirname, "out", "locale", `${languageCode}.json`);
    const locale = fs.readFileSync(localePath, "utf-8");
    return JSON.parse(locale);

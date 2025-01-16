@@ -5,7 +5,7 @@
    "scripts": {
       "start": "gulp build && electron .",
       "debug": "gulp build && electron --enable-logging .",
-      "package": "gulp build && electron-builder"
+      "package": "rimraf dist && gulp build && electron-builder"
    },
    "repository": {
       "type": "git",
@@ -44,6 +44,7 @@
       "gulp": "^5.0.0",
       "gulp-tap": "^2.0.0",
       "handlebars": "^4.7.8",
+      "rimraf": "^6.0.1",
       "yaml": "^2.7.0"
    }
 }

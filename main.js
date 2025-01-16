@@ -30,15 +30,15 @@ const getModName = (modDescriptorName) => {
 };
 
 const main = () => {
-   const win = new BrowserWindow({
+   const appWindow = new BrowserWindow({
       frame: false,
       fullscreen: true,
       webPreferences: {
-         preload: path.join(__dirname, "preload.js"),
+         preload: path.join(__dirname, "out", "preload.js"),
       },
    });
 
-   win.loadFile(path.join(__dirname, "dist", "html", "en", "index.html"));
+   appWindow.loadFile(path.join(__dirname, "out", "html", "en", "index.html"));
 
    ipcMain.handle("getModDescriptorNames", () => getModDescriptorNames());
    ipcMain.handle("getModFolder", (_, modDescriptorName) => getModFolder(modDescriptorName));

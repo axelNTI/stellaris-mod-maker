@@ -37,13 +37,13 @@ gulp.task("handlebars", () => {
                      file.contents = Buffer.from(html);
 
                      // Update file path to include the locale subdirectory
-                     file.path = file.path.replace(/\.hbs$/, ".html").replace("dist/html", `dist/html/${localeCode}`);
+                     file.path = file.path.replace(/\.hbs$/, ".html").replace("out/html", `out/html/${localeCode}`);
                   } catch (error) {
                      reject(error);
                   }
                }),
             )
-            .pipe(gulp.dest(`dist/html/${localeCode}`)) // Output files to the locale-specific subdirectory
+            .pipe(gulp.dest(`out/html/${localeCode}`)) // Output files to the locale-specific subdirectory
             .on("end", resolve)
             .on("error", reject);
       });
@@ -54,7 +54,7 @@ gulp.task("handlebars", () => {
 });
 
 gulp.task("js", () => {
-   return gulp.src("src/js/*.js").pipe(gulp.dest("dist/js"));
+   return gulp.src("src/js/*.js").pipe(gulp.dest("out/js"));
 });
 
 gulp.task("build", gulp.parallel("handlebars", "js"));

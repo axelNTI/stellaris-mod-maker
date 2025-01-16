@@ -29,6 +29,13 @@ const getModName = (modDescriptorName) => {
    return mod.match(/name="(.*)"/)[1];
 };
 
+const getLocale = (languageCode) => {
+   console.log("Test");
+   const localePath = path.join(__dirname, "out", "locale", `${languageCode}.json`);
+   const locale = fs.readFileSync(localePath, "utf-8");
+   return JSON.parse(locale);
+};
+
 const main = () => {
    const appWindow = new BrowserWindow({
       frame: false,
@@ -43,6 +50,7 @@ const main = () => {
    ipcMain.handle("getModDescriptorNames", () => getModDescriptorNames());
    ipcMain.handle("getModFolder", (_, modDescriptorName) => getModFolder(modDescriptorName));
    ipcMain.handle("getModName", (_, modDescriptorName) => getModName(modDescriptorName));
+   ipcMain.handle("getLocale", (_, languageCode) => getLocale(languageCode));
 };
 
 app.whenReady().then(main);

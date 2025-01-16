@@ -21,22 +21,21 @@
       "appId": "com.axelnti.stellaris-mod-maker",
       "productName": "Stellaris Mod Maker",
       "copyright": null,
-      "directories": {
-         "output": "dist"
-      },
       "files": [
-         "dist/**/*",
-         "main.js",
-         "preload.js",
-         "package.json",
-         "yarn.lock",
-         "node_modules/**/*"
+         "!src/**/*",
+         "!gulpfile.js",
+         "!.pretterrc",
+         "!.gitignore",
+         "!gitattributes"
       ],
       "win": {
          "target": "nsis"
       },
       "linux": {
-         "target": "deb"
+         "target": "deb",
+         "category": "Development",
+         "maintainer": "Axel Thornberg <taxel@thornberg.se>",
+         "synopsis": "A tool for creating Stellaris mods"
       }
    },
    "devDependencies": {

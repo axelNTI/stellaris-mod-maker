@@ -1,4 +1,7 @@
 $(async () => {
+   $("#newMod").on("click", async () => {
+      window.location.replace("./new.html");
+   });
 
    const mods = await backend.getModDescriptorNames();
    const languageCode = $("#data").data("language");

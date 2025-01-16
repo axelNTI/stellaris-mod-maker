@@ -10,16 +10,6 @@
       <script defer src="../../../src/js/main.js"></script>
    </head>
    <body>
-      {{#each mods}}
-
-      <h1>{{this.name}}</h1>
-
-      <button>{{@root.locale.load_mod}}</button>
-
-      {{/each}}
-
       <button>{{locale.new_mod}}</button>
-
-      <div style="display: none" data-locale="{{locale}}" data-data="{{data}}"></div>
    </body>
 </html>

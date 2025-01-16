@@ -5,8 +5,7 @@ const yaml = require("yaml");
 const fs = require("fs");
 const path = require("path");
 
-const readYAML = (segment) => {
-   const filePath = path.join(__dirname, segment);
+const readYAML = (filePath) => {
    const file = fs.readFileSync(filePath, "utf-8");
    return yaml.parse(file);
 };
@@ -20,7 +19,7 @@ gulp.task("handlebars", () => {
    // Create a list of promises for each locale processing task
    const tasks = localeFiles.map((localeFile) => {
       const localeCode = path.basename(localeFile, ".yml"); // Extract "en" from "en.yml"
-      const localePath = path.join(localesDir, localeFile);
+      const localePath = path.join(__dirname, localesDir, localeFile);
 
       // Return the Gulp stream as a promise
       return new Promise((resolve, reject) => {

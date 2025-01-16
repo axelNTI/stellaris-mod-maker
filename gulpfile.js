@@ -56,4 +56,21 @@ gulp.task("js", () => {
    return gulp.src("src/js/*.js").pipe(gulp.dest("out/js"));
 });
 
-gulp.task("build", gulp.parallel("handlebars", "js"));
+gulp.task("locale", () => {
+   return gulp
+      .src("src/locale/*.yml")
+      .pipe(
+         tap((file) => {
+            const locale = readYAML(file.path);
+            file.contents = Buffer.from(JSON.stringify(locale));
+            file.path = file.path.replace(/\.yml$/, ".json");
+         }),
+      )
+      .pipe(gulp.dest("out/locale"));
+});
+
+gulp.task("preload", () => {
+   return gulp.src("src/preload.js").pipe(gulp.dest("out"));
+});
+
+gulp.task("build", gulp.parallel("handlebars", "js", "locale", "preload"));

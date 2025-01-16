@@ -3,9 +3,9 @@
    "version": "1.0.0",
    "main": "main.js",
    "scripts": {
-      "start": "gulp build && electron .",
-      "debug": "gulp build && electron --enable-logging .",
-      "package": "rimraf dist && gulp build && electron-builder"
+      "start": "rimraf out && gulp build && electron .",
+      "debug": "rimraf out && gulp build && electron --enable-logging .",
+      "package": "rimraf out && rimraf dist && gulp build && electron-builder"
    },
    "repository": {
       "type": "git",

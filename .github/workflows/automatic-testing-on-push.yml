@@ -12,18 +12,17 @@ jobs:
          - name: Checkout code
            uses: actions/checkout@v4
 
-         - name: Verify Node.js installation
-           run: node --version
-
-         - name: Verify Yarn installation
-           run: yarn --version
-
          - name: Install dependencies
            run: |
               sudo apt-get update
               sudo apt-get install -y libgbm-dev xvfb
               yarn install
               yarn playwright install --with-deps
+
+         - name: Configure Electron sandbox
+           run: |
+              sudo chown root:root node_modules/electron/dist/chrome-sandbox
+              sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
 
          - name: Set up xvfb
            run: |

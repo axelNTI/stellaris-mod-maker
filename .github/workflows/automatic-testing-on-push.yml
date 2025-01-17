@@ -12,22 +12,29 @@ jobs:
          - name: Checkout code
            uses: actions/checkout@v4
 
+         - name: Verify Node.js installation
+           run: node --version
+
+         - name: Verify Yarn installation
+           run: yarn --version
+
          - name: Install dependencies
            run: |
-              sudo apt-get install -y libgbm-dev
+              sudo apt-get update
+              sudo apt-get install -y libgbm-dev xvfb
               yarn install
               yarn playwright install --with-deps
 
          - name: Set up xvfb
            run: |
-              sudo apt-get install xvfb
-              export DISPLAY=':99.0'
               Xvfb :99 -screen 0 1920x1080x16 &
+           env:
+              DISPLAY: ":99.0"
 
          - name: Run tests
-           run: |
-              yarn test
+           run: yarn test
            env:
+              DISPLAY: ":99.0"
               DEBUG: pw:browser*
 
          - name: Upload test results

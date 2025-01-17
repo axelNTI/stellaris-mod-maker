@@ -11,6 +11,20 @@ const setup = async () => {
    return await electronApp.firstWindow();
 };
 
+const teardown = async (app) => {
+   await app.close();
+};
+
+const exists = async (app, selector) => {
+   const element = await app.$(selector);
+
+   expect(element, {
+      message: `"${selector}" does not exist`,
+   }).not.toBeNull();
+};
+
 module.exports = {
    setup,
+   teardown,
+   exists,
 };

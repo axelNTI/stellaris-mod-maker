@@ -1,0 +1,25 @@
+name: Automatic Testing on Push
+
+on:
+   push:
+      branches: "*"
+
+jobs:
+   testing:
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout code
+           uses: actions/checkout@v4
+
+         - name: Install dependencies
+           run: yarn install
+
+         - name: Run tests
+           run: yarn test
+
+         - name: Upload test results
+           uses: actions/upload-artifact@v4
+           with:
+              name: test-results
+              path: logs/results.json

@@ -23,11 +23,17 @@
       "productName": "Stellaris Mod Maker",
       "copyright": null,
       "files": [
+         "!logs/**/*",
+         "!.github/**/*",
          "!src/**/*",
-         "!gulpfile.js",
-         "!.pretterrc",
+         "!tests/**/*",
+         "!dist/**/*",
+         "!.gitattributes",
          "!.gitignore",
-         "!gitattributes"
+         "!.prettierrc",
+         "!gulpfile.js",
+         "!playwright.config.ts",
+         "!yarn.lock"
       ],
       "win": {
          "target": "nsis"

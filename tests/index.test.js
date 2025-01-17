@@ -5,7 +5,7 @@ const helpers = require("./helpers/test-helpers");
 test("New mod button", async () => {
    const app = await helpers.setup();
 
-   const newModButton = await app.$("text=New mod");
+   helpers.exists(app, "text=New mod");
 
-   expect(newModButton).not.toBeNull();
+   await helpers.teardown(app);
 });

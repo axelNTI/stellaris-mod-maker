@@ -5,7 +5,8 @@
    "scripts": {
       "start": "rimraf out && gulp build && electron .",
       "debug": "rimraf out && gulp build && electron --enable-logging .",
-      "package": "rimraf out && rimraf dist && gulp build && electron-builder"
+      "package": "rimraf out && rimraf dist && gulp build && electron-builder",
+      "test": "rimraf out && gulp build && yarn playwright test"
    },
    "repository": {
       "type": "git",
@@ -39,6 +40,7 @@
       }
    },
    "devDependencies": {
+      "@playwright/test": "^1.49.1",
       "electron": "^34.0.0",
       "electron-builder": "^25.1.8",
       "gulp": "^5.0.0",
